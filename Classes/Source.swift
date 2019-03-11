@@ -134,7 +134,7 @@ extension Source: UITableViewDataSource {
     }
 
     @objc(tableView:editingStyleForRowAtIndexPath:)
-    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    public func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         guard let delegate = self.section(for: indexPath).rowFor(indexPath) as? RowDelegateType else {
             return .none
         }
@@ -149,7 +149,7 @@ extension Source: UITableViewDataSource {
         return delegate.canRemove(tableView, indexPath: indexPath)
     }
 
-    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard let delegate = self.section(for: indexPath).rowFor(indexPath) as? RowDelegateType else {
             return
         }
